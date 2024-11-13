@@ -11,6 +11,10 @@ t_RemovePackage sendmail exim
 
 # Postfix
 t_InstallPackage postfix nc rsyslog
+
+# Disable IPv6 - Rich Alloway <ralloway@perforce.com>
+sed -i -e 's/^inet_protocols.*$/inet_protocols = ipv4/g' /etc/postfix/main.cf
+
 t_ServiceControl postfix start
 t_ServiceControl rsyslog start
 

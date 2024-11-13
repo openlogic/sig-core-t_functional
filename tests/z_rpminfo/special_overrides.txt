@@ -537,7 +537,13 @@ centos-release-azure-1.0-2.el6.centos.noarch: packager
 centos-release-azure-1.0-2.el6.centos.noarch: vendor
 centos-release-azure-1.0-2.el7.noarch: packager
 centos-release-azure-1.0-2.el7.noarch: vendor
-epel-release-7-11.noarch: packager 
+epel-release-7-11.noarch: packager
 epel-release-7-11.noarch: vendor
 elrepo-release-7.0-4.el7.elrepo.noarch: packager
 elrepo-release-7.0-4.el7.elrepo.noarch: vendor
+
+# OpenLogic overrides
+amazon-cloudwatch-agent-1.300030.1+dirty+nightly+build-1.x86_64: packager
+amazon-cloudwatch-agent-1.300030.1+dirty+nightly+build-1.x86_64: vendor
+amazon-efs-utils-1.35.0-1.el7.noarch: packager
+amazon-efs-utils-1.35.0-1.el7.noarch: vendor

@@ -42,6 +42,7 @@ special_overrides = {
     'elrepo-release': ['vendor', 'packager'],                 #Imported from elrepo, so the vendor remains "The ELRepo Project"
     'redhat-support-lib-python': ['vendor'],
     'redhat-support-tool': ['vendor'],
+    'OpenLogicEnv': ['vendor', 'packager'],
     }
 
 # you can also add the NVR, and the attribute to ignore to the special_overrides.txt file

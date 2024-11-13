@@ -10,7 +10,7 @@ fi
 
 
 if [ "$SKIP_QA_HARNESS" = "1" ] ; then
-  URL="http://mirror.centos.org/"
+  URL="http://www.centos.org/"
   CHECK_FOR="timestamp"
 else
   URL="http://repo.centos.qa/qa/"

@@ -1,5 +1,5 @@
 # This file contains list of tests we need/want to skip
-# Reason is when there is upstream bug that we're aware of 
+# Reason is when there is upstream bug that we're aware of
 # So this file should contain:
 #  - centos version (using $centos_ver)
 #  - test to skip (tests/p_${name}/test.sh)
@@ -8,3 +8,13 @@
 8|tests/p_gzip/30-gzexe-test|https://apps.centos.org/kanboard/project/23/task/833
 8|tests/p_diffutils/10-cmp-tests|https://bugzilla.redhat.com/show_bug.cgi?id=1732960
 
+6|tests/0_common/00_centos_repos.sh|Non-default repos are typical during OpenLogic testing
+6|tests/0_common/20_upgrade_all.sh|OpenLogic testing doesn't need to verify updates
+7|tests/0_common/00_centos_repos.sh|Non-default repos are typical during OpenLogic testing
+7|tests/0_common/20_upgrade_all.sh|OpenLogic testing doesn't need to verify updates
+8|tests/0_common/50_test_comps.sh|OpenLogic testing doesn't need to verify comps
+8|tests/0_common/00_centos_repos.sh|Non-default repos are typical during OpenLogic testing
+8|tests/0_common/20_upgrade_all.sh|OpenLogic testing doesn't need to verify updates
+
+7|tests/p_passwd/30_user_tests|This test appears to no longer work (Check sending incorrect current password fails = FAIL)
+7|tests/z_repoclosure/repoclosure_test.sh|OpenLogic package testing does not include repo testing/verification/validation

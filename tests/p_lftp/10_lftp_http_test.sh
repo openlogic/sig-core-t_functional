@@ -13,7 +13,7 @@ if [ "$CONTAINERTEST" -eq "1" ]; then
 fi
 
 if [ $SKIP_QA_HARNESS -eq 1 ]; then
-  URL="http://mirror.centos.org/"
+  URL="https://vault.centos.org/"
 else
   URL="http://repo.centos.qa/srv/CentOS/"
 fi
