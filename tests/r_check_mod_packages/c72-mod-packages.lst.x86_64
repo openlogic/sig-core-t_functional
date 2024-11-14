@@ -10,7 +10,7 @@ compat-glibc
 dhcp
 firefox
 grub2
-httpd
+#httpd
 initial-setup
 ipa-client
 kabi-yum-plugins
