@@ -7,7 +7,7 @@ centos-indexhtml
 centos-logos
 centos-release
 compat-glibc
-dhcp
+#dhcp
 firefox
 grub2
 #httpd
@@ -16,7 +16,7 @@ ipa-client
 kabi-yum-plugins
 kde-settings
 libreport
-ntp
+#ntp
 openssl098e
 pcs
 plymouth
