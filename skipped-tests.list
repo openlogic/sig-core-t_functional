@@ -22,3 +22,7 @@
 8|tests/0_common/00_centos_repos.sh|Non-default repos are typical during OpenLogic testing
 8|tests/0_common/20_upgrade_all.sh|OpenLogic testing doesn't need to verify updates
 8|tests/p_kernel/02_kernel_secureboot_signed.sh|OpenLogic's kernels are signed by the Red Hat Test Certificate
+
+# OpenLogic private package changes:
+#7|tests/p_mailman/0-install_mailman.sh|Private python package (python-2.7.5-94_ol006private.el7) doesn't contain necessary modules - this is expected
+#7|tests/p_mailman/mailman_test.sh|Private python package (python-2.7.5-94_ol006private.el7) doesn't contain necessary modules - this is expected
