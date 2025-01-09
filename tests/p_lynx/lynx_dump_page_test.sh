@@ -1,7 +1,8 @@
 #!/bin/sh
 # Author: Athmane Madjoudj <athmanem@gmail.com>
 
-# Change CHECK_FOR after 241213 due to www.centos.org redesign - Rich Alloway <ralloway@perforce.com>
+# 241216 - Change CHECK_FOR after 241213 due to www.centos.org redesign - Rich Alloway <ralloway@perforce.com>
+# 250109 - Fix SSL cert matching for EL6 - Rich Alloway <ralloway@perforce.com>
 
 t_Log "Running $0 - check that lynx can dump remote page."
 
@@ -18,6 +19,11 @@ if [ "$SKIP_QA_HARNESS" = "1" ] ; then
 else
   URL="http://repo.centos.qa/qa/"
   CHECK_FOR="ks_cfg"
+fi
+
+# CentOS 6 lynx doesn't like that the SSL cert for https://www.centos.org uses Common Name "centos.org" - RDA - 250109
+if [ "$centos_ver" -eq "6" ]; then
+  URL="https://centos.org/"
 fi
 
 lynx -dump ${URL} | grep "${CHECK_FOR}"  >/dev/null 2>&1
