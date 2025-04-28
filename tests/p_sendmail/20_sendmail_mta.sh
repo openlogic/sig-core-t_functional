@@ -7,6 +7,7 @@ if [ "$CONTAINERTEST" -eq "1" ]; then
     exit 0
 fi
 ret_val=1
+DELIVERED=1
 
 # send mail to localhost
 mail=$(echo -e "helo localhost\nmail from: root@localhost\nrcpt to: root@localhost\ndata\nt_functional test\n.\nquit\n" | nc -w 5 127.0.0.1 25 | grep accepted)
@@ -16,7 +17,6 @@ if [ $MTA_ACCEPT == 0 ]
   t_Log 'Mail has been queued successfully'
 fi
 
-sleep 1
 
 if [ "$centos_ver" -eq "8" ]; then
   t_Log "Dumping journalctl to /var/log/maillog"
@@ -25,8 +25,15 @@ fi
 regex='250\ 2\.0\.0\ ([0-9A-Za-z]*)\ Message\ accepted\ for\ delivery'
 if [[ $mail =~ $regex ]]
   then
-  egrep -q "${BASH_REMATCH[1]}\:.*stat\=Sent" /var/log/maillog
-  DELIVERED=$?
+	for i in `seq 1 60`; do
+		egrep -q "${BASH_REMATCH[1]}\:.*stat\=Sent" /var/log/maillog
+		DELIVERED=$?
+		if [ "$DELIVERED" -ne 0 ];then
+			sleep 1
+		else
+			break;
+		fi
+	done
 fi
 
 if ([ $MTA_ACCEPT == 0  ] && [ $DELIVERED == 0 ])
