@@ -6,7 +6,11 @@
 
 t_Log "Running $0 - Squid test."
 
-if [ $SKIP_QA_HARNESS -eq 1 ]; then
+if [ -z "$SKIP_QA_HARNESS" ];then
+        SKIP_QA_HARNESS=1
+fi
+
+if [ "$SKIP_QA_HARNESS" -eq 1 ]; then
   URL="http://www.centos.org/"
   #CHECK_FOR="timestamp"	# Before 241213: https://web.archive.org/web/20241212132650/https://www.centos.org/ - RDA - 250109
   CHECK_FOR="CentOS Project"	# After 241213 : https://web.archive.org/web/20241213163833/https://www.centos.org/ - RDA - 250109
